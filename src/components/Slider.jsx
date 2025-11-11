@@ -1,8 +1,15 @@
-import Slider from "react-slick";
+import React from "react";
+import SlickSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function CustomSlider({ slides }) {
+/*
+  Simple wrapper for react-slick.
+  Mobile-first: show 1 slide on mobile, change via responsive settings.
+  Uses only flex utilities in children (user supplies slide content).
+*/
+
+export default function Slider({ slides }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -10,23 +17,35 @@ export default function CustomSlider({ slides }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768, // mobile and up
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 1024, // tablet/desktop
+        settings: { slidesToShow: 1 },
+      },
+    ],
   };
 
   return (
     <div className="w-full">
-      <Slider {...settings}>
-        {slides.map((slide, i) => (
-          <div key={i} className="flex flex-col items-center">
-            <img src={slide.image} alt={slide.title} className="w-full h-auto" />
-            <div className="p-4 text-center">
-              <h2 className="text-lg font-bold">{slide.title}</h2>
-              <p className="text-sm text-gray-600">{slide.subtitle}</p>
+      <SlickSlider {...settings}>
+        {slides.map((s, i) => (
+          <div key={i} className="flex items-center justify-center w-full">
+            {/* slide content should itself use flex utilities */}
+            <div className="flex flex-col items-start justify-center w-full px-4 py-6">
+              {s.image && (
+                <img src={s.image} alt={s.title} className="w-full h-56 object-cover rounded-sm mb-4" />
+              )}
+              <h2 className="text-xl font-bold mb-1">{s.title}</h2>
+              {s.subtitle && <p className="text-sm text-gray-600">{s.subtitle}</p>}
             </div>
           </div>
         ))}
-      </Slider>
+      </SlickSlider>
     </div>
   );
 }
-
-//Bağımlılıklar yüklenecek satır:"lucide-react", "react-slick" ve "slick-carousel" kütüphanelerini import ediyorsun ama bunlar yüklü değil.
