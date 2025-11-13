@@ -18,7 +18,7 @@ export default function Header() {
   const [shopOpen, setShopOpen] = useState(false);
 
   return (
-    <header className="w-full relative min-h-[360px] md:min-h-[520px] lg:min-h-[640px]">
+    <header className="w-full relative min-h-[360px] md:min-h-[520px] lg:min-h-[100px]">
       {/* Top info bar */}
       <div className="bg-[#0b3650] text-white text-sm">
         {/* align top info bar with main nav by using max-w-7xl */}
@@ -152,12 +152,12 @@ export default function Header() {
         )}
       </div>
 
-      {/* Header hero (turquoise background with right image) */}
 {/* Header hero (turquoise background with right image) */}
-<div className="w-full relative bg-[#12b0c8] overflow-hidden">
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-12 md:py-20 lg:py-28 relative">
-    {/* Left side text */}
-    <div className="w-full md:w-1/2 text-white z-10">
+{/*<div className="flex w-full bg-[#12b0c8] h-full overflow-hidden ">
+  <div className="flex flex-col md:flex-row items-center justify-between w-full h-full md:min-h-[520px] lg:min-h-[640px]">
+
+
+    <div className="flex-1 flex flex-col justify-center items-start px-6 py-12 md:py-0 text-white z-10">
       <p className="text-sm uppercase tracking-wide mb-4">Summer 2025</p>
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
         NEW COLLECTION
@@ -170,16 +170,18 @@ export default function Header() {
       </button>
     </div>
 
-    {/* Right side image */}
-    <div className="hidden md:flex md:w-full md:h-full relative z-0">
+
+    <div className="flex-1 flex w-full h-full min-h-[400px] ">
       <img
-        src="public\images\shop-hero-1-product-slide-1.png"
+        src="/images/shop-hero-1-product-slide-1.png"
         alt="hero"
-        className="object-cover w-full h-full rounded-md shadow-lg"
+        className="object-cover h-full min-h-[650px] -w-[150%] -translate-x-1/4"
       />
     </div>
+
   </div>
-</div>
+  </div>*/}
+
 
     </header>
   );

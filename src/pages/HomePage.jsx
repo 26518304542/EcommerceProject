@@ -13,9 +13,9 @@ import FeaturedSlider from "../components/FeaturedSlider";
 */
 
 export default function HomePage() {
-  /*const heroSlides = [
+  const heroSlides = [
     {
-      image: "/assets/hero-1.jpg",
+      image: "public/images/shop-hero-1-product-slide-1.png",
       title: "New Collection",
       subtitle: "Explore our latest styles",
     },
@@ -24,7 +24,7 @@ export default function HomePage() {
       title: "Summer Sale",
       subtitle: "Up to 50% off select items",
     },
-  ];*/
+  ];
 
   const products = [
     { image: "public/images/bestsellers/fixed-height.png", title: "Beige Trench Coat", price: "89", rating: 4.6 },
@@ -72,9 +72,9 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-6">
       {/* Hero Slider */}
-      {/*<section className="w-full">
+      {<section className="w-full">
         <Slider slides={heroSlides} />
-      </section>*/}
+      </section>}
 
       {/* Editors Picks */}
       <EditorsPicks products={products.slice(0, 4)} />

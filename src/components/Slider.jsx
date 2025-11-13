@@ -17,7 +17,7 @@ export default function Slider({ slides }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    arrows: false,
+    arrows: true,
     responsive: [
       {
         breakpoint: 768, // mobile and up
