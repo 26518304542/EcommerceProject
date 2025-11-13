@@ -5,6 +5,7 @@ import ProductsGrid from "../components/ProductsGrid";
 import FeaturedBlock from "../components/FeaturedBlock";
 import BlogList from "../components/BlogList";
 import { Link } from "react-router-dom";
+import FeaturedSlider from "../components/FeaturedSlider";
 
 /*
   Mobile-first Home Page layout matching the provided mobile Figma screenshot.
@@ -26,12 +27,14 @@ export default function HomePage() {
   ];*/
 
   const products = [
-    { image: "/assets/p1.jpg", title: "Beige Trench Coat", price: "89", rating: 4.6 },
-    { image: "/assets/p2.jpg", title: "Casual Knit Sweater", price: "49", rating: 4.8 },
-    { image: "/assets/p3.jpg", title: "Floral Dress", price: "69", rating: 4.5 },
-    { image: "/assets/p4.jpg", title: "Chic Jumpsuit", price: "74", rating: 4.7 },
-    { image: "/assets/p5.jpg", title: "Light Top", price: "29", rating: 4.2 },
-    { image: "/assets/p6.jpg", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "public/images/bestsellers/fixed-height.png", title: "Beige Trench Coat", price: "89", rating: 4.6 },
+    { image: "public/images/bestsellers/fixed-height (1).png", title: "Casual Knit Sweater", price: "49", rating: 4.8 },
+    { image: "public/images/bestsellers/fixed-height (2).png", title: "Floral Dress", price: "69", rating: 4.5 },
+    { image: "public/images/bestsellers/fixed-height (3).png", title: "Chic Jumpsuit", price: "74", rating: 4.7 },
+    { image: "public/images/bestsellers/fixed-height (4).png", title: "Light Top", price: "29", rating: 4.2 },
+    { image: "public/images/bestsellers/fixed-height (5).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "public/images/bestsellers/fixed-height (6).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "public/images/bestsellers/product-cover-5.png", title: "Pleated Skirt", price: "39", rating: 4.4 },
     // add more as needed...
   ];
 
@@ -42,7 +45,7 @@ export default function HomePage() {
       cta: "Shop Now",
     },
     {
-      image: "/assets/feature-2.jpg",
+      image: "public/images/bestsellers/col-md-6.png",
       title: "Holiday Looks",
       cta: "Read More",
     },
@@ -50,12 +53,17 @@ export default function HomePage() {
 
   const blogPosts = [
     {
-      image: "/assets/blog-1.jpg",
+      image: "public/images/featuredposts/fixed-height (7).png",
       title: "City travel guide for 2025",
       excerpt: "Top city spots and packing tips.",
     },
     {
-      image: "/assets/blog-2.jpg",
+      image: "public/images/featuredposts/fixed-height.png",
+      title: "Colorful summer picks",
+      excerpt: "Bright and bold outfit ideas.",
+    },
+    {
+      image: "public/images/featuredposts/fixed-height (1).png",
       title: "Colorful summer picks",
       excerpt: "Bright and bold outfit ideas.",
     },
@@ -75,7 +83,9 @@ export default function HomePage() {
       <ProductsGrid products={products} />
 
       {/* Featured full-width blocks */}
-      <FeaturedBlock items={featured} />
+      <FeaturedSlider items={featured} />
+
+      <FeaturedBlock items={featured.slice(1,2)} />
 
       {/* Blog / Featured posts */}
       <BlogList posts={blogPosts} />

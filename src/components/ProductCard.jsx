@@ -7,23 +7,29 @@ import PropTypes from "prop-types";
 export default function ProductCard({ image, title, price, rating, onClick }) {
   return (
     <article
-      className="flex flex-col items-stretch justify-start p-3 bg-white rounded-lg border"
       onClick={onClick}
+      className="flex flex-col items-center text-center bg-white rounded-lg border p-3 shadow-sm hover:shadow-md transition"
     >
-      <div className="flex items-center justify-center w-full h-44 mb-3 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+      {/* Ürün görseli */}
+      <div className="w-full h-64 overflow-hidden mb-3 flex justify-center items-center">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover rounded-md"
+        />
       </div>
 
-      <div className="flex flex-col items-start">
-        <h3 className="text-sm font-medium leading-tight mb-1">{title}</h3>
-        <div className="flex items-center justify-between w-full">
-          <span className="text-sm text-gray-600">${price}</span>
-          <span className="text-sm text-yellow-500">★ {rating}</span>
-        </div>
+      {/* Ürün bilgileri */}
+      <h3 className="text-sm font-medium text-gray-800 mb-1">{title}</h3>
+      <p className="text-xs text-gray-500 mb-1">Graphic Design</p>
+      <div className="flex items-center justify-center gap-2">
+        <span className="text-sm font-semibold text-gray-800">${price}</span>
+        <span className="text-sm text-yellow-500">★ {rating}</span>
       </div>
     </article>
   );
 }
+
 
 ProductCard.propTypes = {
   image: PropTypes.string,

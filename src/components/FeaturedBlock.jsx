@@ -1,25 +1,52 @@
 export default function FeaturedBlock({ items = [] }) {
   return (
-    <section className="flex flex-col gap-4 px-4">
+    <section className="flex flex-col gap-8 px-4">
       {items.map((f, i) => (
         <div
           key={i}
-          className={`flex items-center justify-between w-full rounded-md overflow-hidden ${i === 0 ? 'bg-[#1f8f75]' : 'bg-[#f3f3f3]'}`}
+          className={`flex flex-col md:flex-row items-center justify-center w-full rounded-2xl overflow-hidden bg-[#f3f3f3] min-h-[600px] `}
         >
-          <div className="flex flex-col p-4">
-            <h4 className={i === 0 ? "text-white font-bold text-lg" : "text-black font-bold text-lg"}>
+          {/* Sağ taraf: Ürün görseli */}
+          <div className="flex justify-center items-center w-full md:w-1/2 px-6 md:px-12">
+            <img
+              src={f.image}
+              alt={f.title}
+              className={`object-contain transition-transform duration-500 ${
+                i === 0
+                  ? "w-[500px] md:w-[800px] hover:scale-105"
+                  : "w-[280px] md:w-[700px] hover:scale-105"
+              }`}
+            />
+          </div>
+
+          {/* Sol taraf: Başlık ve buton */}
+          <div
+            className={`flex flex-col justify-center text-black px-8 md:px-16 py-10 md:py-0`}
+          >
+            <h4
+              className={`font-extrabold leading-tight ${
+                i === 0
+                  ? "text-4xl md:text-5xl mb-6"
+                  : "text-2xl md:text-3xl mb-4"
+              }`}
+            >
               {f.title}
             </h4>
-            <button className={i === 0 ? "mt-3 inline-block bg-white text-sm font-medium px-3 py-2 rounded" : "mt-3 inline-block bg-black text-white text-sm font-medium px-3 py-2 rounded"}>
+            <button
+              className={`w-fit mt-2 px-6 py-3 rounded-md text-sm font-semibold transition ${
+                i === 0
+                  ? "bg-white text-[#1f8f75] hover:bg-gray-200"
+                  : "bg-black text-white hover:bg-gray-800"
+              }`}
+            >
               {f.cta}
             </button>
           </div>
 
-          <div className="hidden sm:flex items-center">
-            <img src={f.image} alt={f.title} className="w-32 h-32 object-cover" />
-          </div>
+
         </div>
       ))}
     </section>
   );
 }
+
