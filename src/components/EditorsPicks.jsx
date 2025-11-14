@@ -16,7 +16,7 @@ const EditorPicks = () => {
         {/* 1. MEN */}
         <div className="relative flex-[1.0]">
           <img
-            src="public\images\menpicture.png"
+            src="public\images\editorspic\media bg-cover.png"
             alt="Men"
             className="w-full h-full object-cover rounded-lg"
           />
@@ -28,7 +28,7 @@ const EditorPicks = () => {
         {/* 2. WOMEN */}
         <div className="relative flex-[0.5]">
           <img
-            src="public\images\womanpicture.png"
+            src="public\images\editorspic\media bg-cover (1).png"
             alt="Women"
             className="w-full h-full object-cover rounded-lg"
           />
@@ -41,7 +41,7 @@ const EditorPicks = () => {
         <div className="flex flex-col gap-4 flex-[0.5]">
           <div className="relative">
             <img
-              src="public\images\card-item.png"
+              src="public\images\editorspic\media bg-cover (2).png"
               alt="Accessories"
               className="w-full h-full object-cover rounded-lg"
             />
@@ -52,7 +52,7 @@ const EditorPicks = () => {
 
           <div className="relative">
             <img
-              src="public\images\kids.png"
+              src="public\images\editorspic\media bg-cover (3).png"
               alt="Kids"
               className="w-full h-full object-cover rounded-lg"
             />

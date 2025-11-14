@@ -37,7 +37,7 @@ export default function Slider({ slides }) {
           <div key={i} className="w-full relative">
             {/* full-bleed hero image */}
             {s.image && (
-              <img src={s.image} alt={s.title} className="absolute inset-0 w-full h-[420px] sm:h-[520px] md:h-[680px] object-cover" />
+              <img src={s.image} alt={s.title} className="absolute inset-0 w-full h-[420px] sm:h-[520px] md:h-[980px] object-cover "/>
             )}
 
             {/* overlay content placed left, vertically centered */}
