@@ -15,7 +15,7 @@ import FeaturedSlider from "../components/FeaturedSlider";
 export default function HomePage() {
   const heroSlides = [
     {
-      image: "public/images/shop-hero-1-product-slide-1.png",
+      image: "/images/shop-hero-1-product-slide-1.png",
       title: "New Collection",
       subtitle: "Explore our latest styles",
     },
@@ -27,25 +27,25 @@ export default function HomePage() {
   ];
 
   const products = [
-    { image: "public/images/bestsellers/fixed-height.png", title: "Beige Trench Coat", price: "89", rating: 4.6 },
-    { image: "public/images/bestsellers/fixed-height (1).png", title: "Casual Knit Sweater", price: "49", rating: 4.8 },
-    { image: "public/images/bestsellers/fixed-height (2).png", title: "Floral Dress", price: "69", rating: 4.5 },
-    { image: "public/images/bestsellers/fixed-height (3).png", title: "Chic Jumpsuit", price: "74", rating: 4.7 },
-    { image: "public/images/bestsellers/fixed-height (4).png", title: "Light Top", price: "29", rating: 4.2 },
-    { image: "public/images/bestsellers/fixed-height (5).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
-    { image: "public/images/bestsellers/fixed-height (6).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
-    { image: "public/images/bestsellers/product-cover-5.png", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "/images/bestsellers/fixed-height.png", title: "Beige Trench Coat", price: "89", rating: 4.6 },
+    { image: "/images/bestsellers/fixed-height (1).png", title: "Casual Knit Sweater", price: "49", rating: 4.8 },
+    { image: "/images/bestsellers/fixed-height (2).png", title: "Floral Dress", price: "69", rating: 4.5 },
+    { image: "/images/bestsellers/fixed-height (3).png", title: "Chic Jumpsuit", price: "74", rating: 4.7 },
+    { image: "/images/bestsellers/fixed-height (4).png", title: "Light Top", price: "29", rating: 4.2 },
+    { image: "/images/bestsellers/fixed-height (5).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "/images/bestsellers/fixed-height (6).png", title: "Pleated Skirt", price: "39", rating: 4.4 },
+    { image: "/images/bestsellers/product-cover-5.png", title: "Pleated Skirt", price: "39", rating: 4.4 },
     // add more as needed...
   ];
 
   const featured = [
     {
-      image: "public/images/shop-hero-2-png-picture-1.png",
+      image: "/images/shop-hero-2-png-picture-1.png",
       title: "Vita Classic Product",
       cta: "Shop Now",
     },
     {
-      image: "public/images/bestsellers/col-md-6.png",
+      image: "/images/bestsellers/col-md-6.png",
       title: "Holiday Looks",
       cta: "Read More",
     },
@@ -53,17 +53,17 @@ export default function HomePage() {
 
   const blogPosts = [
     {
-      image: "public/images/featuredposts/fixed-height (7).png",
+      image: "/images/featuredposts/fixed-height (7).png",
       title: "City travel guide for 2025",
       excerpt: "Top city spots and packing tips.",
     },
     {
-      image: "public/images/featuredposts/fixed-height.png",
+      image: "/images/featuredposts/fixed-height.png",
       title: "Colorful summer picks",
       excerpt: "Bright and bold outfit ideas.",
     },
     {
-      image: "public/images/featuredposts/fixed-height (1).png",
+      image: "/images/featuredposts/fixed-height (1).png",
       title: "Colorful summer picks",
       excerpt: "Bright and bold outfit ideas.",
     },
