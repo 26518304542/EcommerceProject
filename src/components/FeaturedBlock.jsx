@@ -32,15 +32,30 @@ export default function FeaturedBlock({ items = [] }) {
             >
               {f.title}
             </h4>
-            <button
-              className={`w-fit mt-2 px-6 py-3 rounded-md text-sm font-semibold transition ${
-                i === 0
-                  ? "bg-white text-[#1f8f75] hover:bg-gray-200"
-                  : "bg-black text-white hover:bg-gray-800"
-              }`}
-            >
-              {f.cta}
-            </button>
+            <p>We know how large objects will act,<br/>
+              but things on a small scale.
+            </p>
+            <div className="flex gap-7">
+                <button
+                  className={`w-fit mt-2 px-6 py-3 rounded-md text-sm font-semibold transition ${
+                    i === 0
+                      ? "bg-[#2DC071] text-white hover:bg-gray-200"
+                      : "bg-black text-white hover:bg-gray-800"
+                  }`}
+                >
+                  BUY NOW
+                </button>
+                <button
+                  className={`w-fit mt-2 px-6 py-3 rounded-md text-sm font-semibold transition ${
+                    i === 0
+                      ? "bg-white text-[#1f8f75] hover:bg-gray-200"
+                      : "bg-black text-white hover:bg-gray-800"
+                  }`}
+                >
+                  {f.cta}
+              </button>
+            </div>
+
           </div>
 
 

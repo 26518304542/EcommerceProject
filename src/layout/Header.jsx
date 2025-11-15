@@ -11,6 +11,7 @@ import {
   Facebook,
   Instagram,
   Twitter,
+  Heart as Like,
 } from "lucide-react";
 
 export default function Header() {
@@ -39,15 +40,15 @@ export default function Header() {
             <span>Follow Us and get a chance to win 80% off</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 text-white">
             <div className="flex items-center gap-2">
-              <a href="#" aria-label="facebook"><Facebook className="w-4 h-4" /></a>
-              <a href="#" aria-label="instagram"><Instagram className="w-4 h-4" /></a>
-              <a href="#" aria-label="twitter"><Twitter className="w-4 h-4" /></a>
+              <a href="#" aria-label="facebook"><Facebook className="w-4 h-4 text-white" /></a>
+              <a href="#" aria-label="instagram"><Instagram className="w-4 h-4 text-white" /></a>
+              <a href="#" aria-label="twitter"><Twitter className="w-4 h-4 text-white" /></a>
             </div>
 
             <div className=" sm:flex items-center gap-2">
-              <Link to="/login" className="text-xs underline">Login / Register</Link>
+              <Link to="/login" className="text-xs underline text-white">Login / Register</Link>
             </div>
           </div>
         </div>
@@ -66,19 +67,19 @@ export default function Header() {
               <Menu className="w-6 h-6" />
             </button>
 
-            <Link to="/" className="text-2xl font-bold">Bandage</Link>
+            <Link to="/" className="text-2xl font-bold text-[#737373]">Bandage</Link>
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 relative">
-            <Link to="/" className="text-sm">Home</Link>
+          <nav className="hidden md:flex items-center gap-6 relative ">
+            <Link to="/" className="text-[#737373] text-sm">Home</Link>
 
             <div
               className="relative"
               onMouseEnter={() => setShopOpen(true)}
               onMouseLeave={() => setShopOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm">
+              <button className="flex items-center gap-1 text-sm text-[#737373] bg-white">
                 Shop <ChevronDown className="w-4 h-4" />
               </button>
 
@@ -109,24 +110,29 @@ export default function Header() {
               )}
             </div>
 
-            <Link to="/about" className="text-sm">About</Link>
-            <Link to="/blog" className="text-sm">Blog</Link>
-            <Link to="/contact" className="text-sm">Contact</Link>
-            <Link to="/pages" className="text-sm">Pages</Link>
+            <Link to="/about" className="text-sm text-[#737373]">About</Link>
+            <Link to="/blog" className="text-sm text-[#737373]">Blog</Link>
+            <Link to="/contact" className="text-sm text-[#737373]">Contact</Link>
+            <Link to="/pages" className="text-sm text-[#737373]">Pages</Link>
           </nav>
 
           <div className="flex items-center gap-4">
-            <button aria-label="search" className="hidden sm:flex items-center">
-              <Search className="w-5 h-5 text-gray-600" />
+            <button aria-label="search" className="hidden sm:flex items-center bg-white">
+              <Search className="w-5 h-5 text-[#23A6F0] bg-white" />
             </button>
 
-            <Link to="/account" className="hidden sm:flex items-center gap-1 text-sm text-gray-700">
+            <Link to="/account" className="hidden sm:flex items-center gap-1 text-sm text-[#23A6F0]">
               <User className="w-5 h-5" />
               <span className="text-xs">Account</span>
             </Link>
 
-            <Link to="/cart" className="flex items-center gap-2">
+            <Link to="/cart" className="flex items-center gap-2 text-[#23A6F0]">
               <ShoppingCart className="w-6 h-6" />
+              <span className="hidden sm:inline text-sm">0</span>
+            </Link>
+
+            <Link to="/cart" className="flex items-center gap-2 text-[#23A6F0]">
+              <Like className="w-6 h-6" />
               <span className="hidden sm:inline text-sm">0</span>
             </Link>
           </div>
