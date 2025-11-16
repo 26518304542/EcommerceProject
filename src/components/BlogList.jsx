@@ -1,13 +1,21 @@
 export default function BlogList({ posts = [] }) {
   return (
-    <section className="flex flex-col items-center px-6 gap-6 pb-12 ">
+    <section className="flex flex-col items-center px-6 gap-6 pb-12">
       <h3 className="text-lg font-semibold tracking-tight">Featured Posts</h3>
 
-      <div className="flex gap-6 sm:grid-cols-2 lg:grid-cols-3 w-1/2 jusify-center ">
+      {/* MOBIL = flex-col, DESKTOP = flex-row */}
+      <div
+        className="
+          flex flex-col md:flex-row
+          gap-6
+          w-full md:w-4/5 lg:w-3/4
+          justify-center
+        "
+      >
         {posts.map((b, i) => (
           <article
             key={i}
-            className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+            className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden md:flex-1"
           >
             <img
               src={b.image}

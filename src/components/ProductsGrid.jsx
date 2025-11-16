@@ -5,14 +5,24 @@ export default function ProductsGrid({ products = [] }) {
     <section className="flex flex-col px-4 gap-4 justify-center items-center">
       <h2 className="text-base font-semibold">Bestseller Products</h2>
       <p className="text-gray-500 text-sm">
-          Problems trying to resolve the conflict between
+        Problems trying to resolve the conflict between
       </p>
 
-      <div className="flex flex-wrap justify-center w-1/2 ">
+      {/* Ürün grid alanı */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          gap-6
+          w-full
+          max-w-5xl
+        "
+      >
         {products.map((p, i) => (
-          <div key={i} className="flex-[0_0_25%] m-0 p-0 justify-center">
-            <ProductCard {...p} />
-          </div>
+          <ProductCard key={i} {...p} />
         ))}
       </div>
     </section>

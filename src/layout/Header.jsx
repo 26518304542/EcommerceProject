@@ -4,14 +4,14 @@ import {
   Menu,
   Search,
   ShoppingCart,
-  ChevronDown,
   User,
+  Heart as Like,
   Phone,
   Mail,
   Facebook,
   Instagram,
   Twitter,
-  Heart as Like,
+  ChevronDown,
 } from "lucide-react";
 
 export default function Header() {
@@ -20,58 +20,69 @@ export default function Header() {
 
   return (
     <header className="w-full relative min-h-[360px] md:min-h-[520px] lg:min-h-[100px]">
-      {/* Top info bar */}
+
+      {/* ---------- TOP INFO BAR (Aynı) ---------- */}
       <div className="bg-[#0b3650] text-white text-sm">
-        {/* align top info bar with main nav by using max-w-7xl */}
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-white" />
-              <span className="text-white">(225) 555-0118</span>
+              <span>(225) 555-0118</span>
             </div>
-            <div className="visible sm:flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <span>michelle.rivera@example.com</span>
             </div>
-
           </div>
 
-          <div className="flex-1  sm:flex items-center justify-center">
+          <div className="flex-1 hidden sm:flex items-center justify-center">
             <span>Follow Us and get a chance to win 80% off</span>
           </div>
 
           <div className="flex items-center gap-3 text-white">
-            <div className="flex items-center gap-2">
-              <a href="#" aria-label="facebook"><Facebook className="w-4 h-4 text-white" /></a>
-              <a href="#" aria-label="instagram"><Instagram className="w-4 h-4 text-white" /></a>
-              <a href="#" aria-label="twitter"><Twitter className="w-4 h-4 text-white" /></a>
+            <div className="hidden sm:flex items-center gap-2">
+              <Facebook className="w-4 h-4" />
+              <Instagram className="w-4 h-4" />
+              <Twitter className="w-4 h-4" />
             </div>
 
-            <div className=" sm:flex items-center gap-2">
-              <Link to="/login" className="text-xs underline text-white">Login / Register</Link>
+            <div className="hidden sm:flex items-center gap-2">
+              <Link to="/login" className="text-xs underline">Login / Register</Link>
             </div>
           </div>
         </div>
       </div>
 
-          {/* Main navigation */}
-          <div className="bg-white border-b">
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-4">
-            {/* Mobile menu button */}
-            <button
-              aria-label="open menu"
-              className="md:hidden"
-              onClick={() => setMobileOpen((s) => !s)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+      {/* ---------- MAIN NAV ---------- */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
 
-            <Link to="/" className="text-2xl font-bold text-[#737373]">Bandage</Link>
+          {/* --------- MOBILE HEADER (YENİ) --------- */}
+          <div className="flex w-full items-center justify-between md:hidden">
+
+            {/* Logo */}
+            <Link to="/" className="text-2xl font-bold text-[#252B42]">
+              Bandage
+            </Link>
+
+            {/* Right icons */}
+            <div className="flex items-center gap-4">
+              <Search className="w-5 h-5 text-[#23A6F0]" />
+              <Link to="/cart">
+                <ShoppingCart className="w-6 h-6 text-[#23A6F0]" />
+              </Link>
+              <Like className="w-6 h-6 text-[#23A6F0]" />
+              <User className="w-6 h-6 text-[#23A6F0]" />
+
+              {/* Mobile Menu */}
+              <button onClick={() => setMobileOpen(!mobileOpen)}>
+                <Menu className="w-7 h-7 text-[#252B42]" />
+              </button>
+            </div>
           </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 relative ">
+          {/* --------- DESKTOP MENU (Aynı) --------- */}
+          <nav className="hidden md:flex items-center gap-6 relative">
             <Link to="/" className="text-[#737373] text-sm">Home</Link>
 
             <div
@@ -102,7 +113,7 @@ export default function Header() {
                       <Link to="#" className="text-sm text-gray-600">Hats</Link>
                     </div>
 
-                    <div className="flex-1 flex flex-col gap-2">
+                    <div className="flex-1">
                       <img src="/assets/mega-1.jpg" alt="mega" className="w-full h-36 object-cover rounded" />
                     </div>
                   </div>
@@ -114,81 +125,44 @@ export default function Header() {
             <Link to="/blog" className="text-sm text-[#737373]">Blog</Link>
             <Link to="/contact" className="text-sm text-[#737373]">Contact</Link>
             <Link to="/pages" className="text-sm text-[#737373]">Pages</Link>
+
+
           </nav>
-
-          <div className="flex items-center gap-4">
-            <button aria-label="search" className="hidden sm:flex items-center bg-white">
-              <Search className="w-5 h-5 text-[#23A6F0] bg-white" />
-            </button>
-
-            <Link to="/account" className="hidden sm:flex items-center gap-1 text-sm text-[#23A6F0]">
-              <User className="w-5 h-5" />
-              <span className="text-xs">Account</span>
-            </Link>
-
-            <Link to="/cart" className="flex items-center gap-2 text-[#23A6F0]">
-              <ShoppingCart className="w-6 h-6" />
-              <span className="hidden sm:inline text-sm">0</span>
-            </Link>
-
-            <Link to="/cart" className="flex items-center gap-2 text-[#23A6F0]">
-              <Like className="w-6 h-6" />
-              <span className="hidden sm:inline text-sm">0</span>
-            </Link>
-          </div>
+                        {/* --------- DESKTOP RIGHT ICONS (YENİ) --------- */}
+            <div className="hidden md:flex items-center gap-4 ml-6">
+              <Search className="w-5 h-5 text-[#23A6F0]" />
+              <Link to="/cart">
+                <ShoppingCart className="w-6 h-6 text-[#23A6F0]" />
+              </Link>
+              <Like className="w-6 h-6 text-[#23A6F0]" />
+              <User className="w-6 h-6 text-[#23A6F0]" />
+            </div>
         </div>
 
-        {/* Mobile menu panel */}
+        {/* --------- MOBILE DROPDOWN MENU (YENİ) --------- */}
         {mobileOpen && (
-          <div className="md:hidden border-t">
-            <div className="flex flex-col px-4 py-4 gap-3">
+          <div className="md:hidden border-t bg-white shadow-md animate-fadeIn">
+            <div className="flex flex-col px-4 py-4 gap-4 text-[#252B42] text-lg font-medium">
+
               <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
-              <details>
-                <summary className="cursor-pointer">Shop</summary>
-                <div className="flex flex-col pl-4 mt-2 gap-2">
+
+              <details className="cursor-pointer">
+                <summary className="text-lg">Shop</summary>
+                <div className="flex flex-col pl-4 mt-2 gap-2 text-base">
                   <Link to="#">Kadın - Bags</Link>
-                  <Link to="#">Erkek - Bags</Link>
+                  <Link to="#">Kadın - Belts</Link>
+                  <Link to="#">Erkek - Hats</Link>
                 </div>
               </details>
+
               <Link to="/about" onClick={() => setMobileOpen(false)}>About</Link>
               <Link to="/blog" onClick={() => setMobileOpen(false)}>Blog</Link>
               <Link to="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
+              <Link to="/pages" onClick={() => setMobileOpen(false)}>Pages</Link>
             </div>
           </div>
         )}
       </div>
-
-{/* Header hero (turquoise background with right image) */}
-{/*<div className="flex w-full bg-[#12b0c8] h-full overflow-hidden ">
-  <div className="flex flex-col md:flex-row items-center justify-between w-full h-full md:min-h-[520px] lg:min-h-[640px]">
-
-
-    <div className="flex-1 flex flex-col justify-center items-start px-6 py-12 md:py-0 text-white z-10">
-      <p className="text-sm uppercase tracking-wide mb-4">Summer 2025</p>
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-        NEW COLLECTION
-      </h1>
-      <p className="text-sm sm:text-base text-white/90 mb-6">
-        We know how large objects will act, but things on a small scale.
-      </p>
-      <button className="inline-block bg-[#2fb86a] text-white px-5 py-3 rounded-md font-medium">
-        SHOP NOW
-      </button>
-    </div>
-
-
-    <div className="flex-1 flex w-full h-full min-h-[400px] ">
-      <img
-        src="/images/shop-hero-1-product-slide-1.png"
-        alt="hero"
-        className="object-cover h-full min-h-[650px] -w-[150%] -translate-x-1/4"
-      />
-    </div>
-
-  </div>
-  </div>*/}
-
-
     </header>
   );
 }

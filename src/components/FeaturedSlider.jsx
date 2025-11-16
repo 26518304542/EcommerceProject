@@ -9,9 +9,9 @@ function NextArrow(props) {
   return (
     <button
       onClick={onClick}
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/40 hover:bg-white/70 text-white hover:text-gray-800 rounded-full p-2 transition"
+      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/60 md:bg-white text-gray-800 rounded-full p-2 md:p-3 shadow-md"
     >
-      <ChevronRight className="w-6 h-6" />
+      <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
     </button>
   );
 }
@@ -21,74 +21,82 @@ function PrevArrow(props) {
   return (
     <button
       onClick={onClick}
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/40 hover:bg-white/70 text-white hover:text-gray-800 rounded-full p-2 transition"
+      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/60 md:bg-white text-gray-800 rounded-full p-2 md:p-3 shadow-md"
     >
-      <ChevronLeft className="w-6 h-6" />
+      <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
     </button>
   );
 }
 
 export default function FeaturedSlider({ items = [] }) {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    speed: 800,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    fade: true,
+    autoplay: false,
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
 
   return (
-    <section className="relative flex flex-col px-4">
+    <section className="relative w-full px-0 md:px-4 py-10 md:py-12">
       <SlickSlider {...settings}>
         {items.map((f, i) => (
-          <div key={i} className="px-2">
+          <div key={i} className="px-0 md:px-2">
             <div
-              className={`flex flex-col md:flex-row items-center justify-between w-full rounded-2xl overflow-hidden ${
-                i === 0 ? "bg-[#1f8f75]" : "bg-[#f3f3f3]"
-              } ${i === 0 ? "min-h-[600px]" : "min-h-[600px]"}`}
+              className={`flex flex-col md:flex-row items-center justify-between rounded-xl overflow-hidden
+              ${i === 0 ? "bg-[#1f8f75]" : "bg-[#f3f3f3]"}
+              md:min-h-[500px]`}
             >
-              {/* Left text */}
+              {/* TEXT */}
               <div
-                className={`flex flex-col justify-center ${
-                  i === 0 ? "text-white" : "text-black"
-                } px-8 md:px-16 py-10 md:py-0`}
+                className={`flex flex-col justify-center
+                w-full md:w-1/2
+                px-8 md:px-20 py-10
+                ${i === 0 ? "text-white" : "text-black"}
+
+                /* MOBILE Figma style */
+                text-center md:text-left
+                items-center md:items-start
+              `}
               >
-                <h4
-                  className={`font-extrabold leading-tight ${
-                    i === 0
-                      ? "text-4xl md:text-5xl mb-6"
-                      : "text-2xl md:text-3xl mb-4"
-                  }`}
-                >
+                <p className="text-xs md:text-sm uppercase tracking-wider opacity-80 mb-2 md:mb-3">
+                  {f.subtitle}
+                </p>
+
+                <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-4 md:mb-6">
                   {f.title}
-                </h4>
+                </h2>
+
+                <p className="text-sm md:text-lg opacity-90 mb-6 md:mb-8 max-w-[320px] md:max-w-none">
+                  {f.description}
+                </p>
+
                 <button
-                  className={`w-fit mt-2 px-6 py-3 rounded-md text-sm font-semibold transition ${
-                    i === 0
-                      ? "bg-white text-[#1f8f75] hover:bg-gray-200"
-                      : "bg-black text-white hover:bg-gray-800"
-                  }`}
+                  className={`px-6 py-3 rounded-md text-sm font-semibold transition
+                  ${i === 0 ? "bg-white text-[#1f8f75]" : "bg-black text-white"}
+                `}
                 >
                   {f.cta}
                 </button>
               </div>
 
-              {/* Right image */}
-              <div className="flex justify-center items-center w-full md:w-1/2 px-6 md:px-12">
+              {/* IMAGE */}
+              <div
+                className="flex justify-center items-center
+                w-full md:w-1/2
+                mb-6 md:mb-0"
+              >
                 <img
                   src={f.image}
                   alt={f.title}
-                  className={`object-contain transition-transform duration-500 ${
-                    i === 0
-                      ? "w-[400px] md:w-[520px] hover:scale-105"
-                      : "w-[280px] md:w-[340px] hover:scale-105"
-                  }`}
+                  className={`object-contain transition-transform duration-500
+                  w-[220px] sm:w-[280px] md:w-[420px] lg:w-[520px]
+                  hover:scale-105
+                `}
                 />
               </div>
             </div>
