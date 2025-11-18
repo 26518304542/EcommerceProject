@@ -95,7 +95,7 @@ export default function Header() {
               </button>
 
               {shopOpen && (
-                <div className="relative z-50 left-0 top-full mt-2 w-[620px] bg-white shadow-lg border rounded-md p-4">
+                <div className="absolute z-50 left-0 top-full mt-2 w-[620px] bg-white shadow-lg border rounded-md p-4">
                   <div className="flex gap-6">
                     <div className="flex-1 flex flex-col gap-2">
                       <h4 className="text-sm font-semibold">Kadın</h4>
@@ -115,7 +115,7 @@ export default function Header() {
 
                     <div className="flex-1">
                       <img src="/assets/mega-1.jpg" alt="mega" className="w-full h-36 object-cover rounded" />
-                    </div>
+                    </div>*
                   </div>
                 </div>
               )}
@@ -128,7 +128,7 @@ export default function Header() {
 
 
           </nav>
-                        {/* --------- DESKTOP RIGHT ICONS (YENİ) --------- */}
+            {/* --------- DESKTOP RIGHT ICONS  --------- */}
             <div className="hidden md:flex items-center gap-4 ml-6">
               <Search className="w-5 h-5 text-[#23A6F0]" />
               <Link to="/cart">

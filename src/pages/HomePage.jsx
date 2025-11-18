@@ -42,7 +42,10 @@ export default function HomePage() {
     {
       image: "/images/shop-hero-2-png-picture-1.png",
       title: "Vita Classic Product",
-      cta: "Shop Now",
+      subtitle: "Summer 2020",
+      description: "We know how large objects will act, We know how are objects will act, We know",
+      price: "16.48",
+      cta: "ADD TO CART",
     },
     {
       image: "/images/bestsellers/col-md-6.png",

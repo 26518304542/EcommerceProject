@@ -4,14 +4,33 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Custom Indicators (Figma style)
+function CustomDots({ dots }) {
+  return (
+    <div className="flex gap-2 justify-center mt-6">
+      {dots.map((dot, index) => (
+        <button
+          key={index}
+          className={`w-2.5 h-2.5 rounded-full transition-all duration-300
+            ${dot.props.className.includes("slick-active") ? "bg-black w-6" : "bg-gray-400"}
+          `}
+          onClick={dot.props.onClick}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Figma Styled Arrows
 function NextArrow(props) {
   const { onClick } = props;
   return (
     <button
       onClick={onClick}
-      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/60 md:bg-white text-gray-800 rounded-full p-2 md:p-3 shadow-md"
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-20
+      bg-black text-white rounded-full p-3 shadow-lg hover:bg-gray-900 transition"
     >
-      <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+      <ChevronRight className="w-5 h-5" />
     </button>
   );
 }
@@ -21,9 +40,10 @@ function PrevArrow(props) {
   return (
     <button
       onClick={onClick}
-      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/60 md:bg-white text-gray-800 rounded-full p-2 md:p-3 shadow-md"
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-20
+      bg-black text-white rounded-full p-3 shadow-lg hover:bg-gray-900 transition"
     >
-      <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+      <ChevronLeft className="w-5 h-5" />
     </button>
   );
 }
@@ -39,6 +59,8 @@ export default function FeaturedSlider({ items = [] }) {
     arrows: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    appendDots: (dots) => <CustomDots dots={dots} />, // Custom Figma indicators
+    customPaging: () => <span className="hidden" />, // disable default dots shape
   };
 
   return (
@@ -57,9 +79,7 @@ export default function FeaturedSlider({ items = [] }) {
                 w-full md:w-1/2
                 px-8 md:px-20 py-10
                 ${i === 0 ? "text-white" : "text-black"}
-
-                /* MOBILE Figma style */
-                text-center md:text-left
+                text-center md:text-center
                 items-center md:items-start
               `}
               >
@@ -75,13 +95,19 @@ export default function FeaturedSlider({ items = [] }) {
                   {f.description}
                 </p>
 
+                <div className="flex flex-row gap-6">
+                <p className="text-sm md:text-lg opacity-90 mb-6 md:mb-8 max-w-[320px] md:max-w-none">
+                  {f.price}$
+                </p>
+
                 <button
                   className={`px-6 py-3 rounded-md text-sm font-semibold transition
-                  ${i === 0 ? "bg-white text-[#1f8f75]" : "bg-black text-white"}
+                  ${i === 0 ? "bg-[#2DC071] text-white" : "bg-black text-[#2DC071]"}
                 `}
                 >
                   {f.cta}
                 </button>
+                </div>
               </div>
 
               {/* IMAGE */}
@@ -93,10 +119,9 @@ export default function FeaturedSlider({ items = [] }) {
                 <img
                   src={f.image}
                   alt={f.title}
-                  className={`object-contain transition-transform duration-500
+                  className="object-contain transition-transform duration-500
                   w-[220px] sm:w-[280px] md:w-[420px] lg:w-[520px]
-                  hover:scale-105
-                `}
+                  hover:scale-105"
                 />
               </div>
             </div>

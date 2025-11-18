@@ -1,35 +1,33 @@
 import PropTypes from "prop-types";
 
-/*
-  ProductCard is mobile-first.
-  Layout uses flex only; "grid" avoided; we rely on flex-wrap parent to form columns.
-*/
 export default function ProductCard({ image, title, price, rating, onClick }) {
   return (
     <article
       onClick={onClick}
-      className="flex flex-col items-center text-center bg-white rounded-lg border p-3 shadow-sm hover:shadow-md transition"
+      className="flex flex-col bg-white rounded-xl border overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer w-full max-w-[200px] mx-auto"
     >
-      {/* Ürün görseli */}
-      <div className="w-full h-64 overflow-hidden mb-3 flex justify-center items-center">
+      {/* Image Wrapper — Figma aspect ratio preserved */}
+      <div className="relative w-full h-72 sm:h-64 bg-gray-200 overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover rounded-md"
+          className="absolute inset-0 w-full h-full object-cover object-top" /* yüzleri daha fazla gösterir */
         />
       </div>
 
-      {/* Ürün bilgileri */}
-      <h3 className="text-sm font-medium text-gray-800 mb-1">{title}</h3>
-      <p className="text-xs text-gray-500 mb-1">Graphic Design</p>
-      <div className="flex items-center justify-center gap-2">
-        <span className="text-sm font-semibold text-gray-800">${price}</span>
-        <span className="text-sm text-yellow-500">★ {rating}</span>
+      {/* Content Section */}
+      <div className="flex flex-col gap-2 p-4 text-left">
+        <h3 className="text-base font-semibold text-gray-800 leading-tight">{title}</h3>
+        <p className="text-xs text-gray-500">Graphic Design</p>
+
+        <div className="flex items-center justify-between mt-1">
+          <span className="text-lg font-semibold text-gray-900">${price}</span>
+          <span className="text-sm text-yellow-500 font-medium">★ {rating}</span>
+        </div>
       </div>
     </article>
   );
 }
-
 
 ProductCard.propTypes = {
   image: PropTypes.string,
@@ -38,5 +36,3 @@ ProductCard.propTypes = {
   rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onClick: PropTypes.func,
 };
-
-
