@@ -4,7 +4,7 @@ import Footer from "./layout/Footer";
 import PageContent from "./layout/PageContent";
 import HomePage from "./pages/HomePage";
 import OverflowChecker from "./components/OverflowChecker";
-
+import ShopPage from "./pages/ShopPage";
 /* App uses a single Header and single Footer for all pages (as requested) */
 export default function App() {
   return (
@@ -17,6 +17,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               {/* add other routes as needed */}
+              <Route path="/shop" element={<ShopPage />} />
             </Routes>
           </div>
         </PageContent>

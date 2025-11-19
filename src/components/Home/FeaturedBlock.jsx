@@ -19,7 +19,7 @@ export default function FeaturedBlock({ items = [] }) {
             />
           </div>
 
-          {/* Sol taraf: Başlık ve buton */}
+          {/* Sağ taraf: Başlık ve buton */}
           <div
             className={`flex flex-col justify-center text-black px-8 md:px-16 py-10 md:py-0`}
           >

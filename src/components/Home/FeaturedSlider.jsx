@@ -11,7 +11,7 @@ function CustomDots({ dots }) {
       {dots.map((dot, index) => (
         <button
           key={index}
-          className={`w-2.5 h-2.5 rounded-full transition-all duration-300
+          className={`w-2.5 h-2.5 rounded-none transition-all duration-300
             ${dot.props.className.includes("slick-active") ? "bg-black w-6" : "bg-gray-400"}
           `}
           onClick={dot.props.onClick}
@@ -77,7 +77,7 @@ export default function FeaturedSlider({ items = [] }) {
               <div
                 className={`flex flex-col justify-center
                 w-full md:w-1/2
-                px-8 md:px-20 py-10
+                px-8 md:px-20 py-10 md:ml-10
                 ${i === 0 ? "text-white" : "text-black"}
                 text-center md:text-center
                 items-center md:items-start
@@ -95,8 +95,8 @@ export default function FeaturedSlider({ items = [] }) {
                   {f.description}
                 </p>
 
-                <div className="flex flex-row gap-6">
-                <p className="text-sm md:text-lg opacity-90 mb-6 md:mb-8 max-w-[320px] md:max-w-none">
+                <div className="flex flex-row gap-20 items-center ">
+                <p className="text-sm md:text-lg opacity-90 mb-6 md:mb-8 max-w-[320px] md:max-w-none md:ml-10">
                   {f.price}$
                 </p>
 

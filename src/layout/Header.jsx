@@ -21,6 +21,8 @@ export default function Header() {
   return (
     <header className="w-full relative min-h-[360px] md:min-h-[520px] lg:min-h-[100px]">
 
+
+
       {/* ---------- TOP INFO BAR (Aynı) ---------- */}
       <div className="bg-[#0b3650] text-white text-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
@@ -57,13 +59,15 @@ export default function Header() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
 
+                      {/* Logo */}
+          <Link to="/" className="text-2xl font-bold text-[#252B42] flex-shrink-0">
+              Bandage
+          </Link>
+
           {/* --------- MOBILE HEADER (YENİ) --------- */}
           <div className="flex w-full items-center justify-between md:hidden">
 
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-[#252B42]">
-              Bandage
-            </Link>
+
 
             {/* Right icons */}
             <div className="flex items-center gap-4">

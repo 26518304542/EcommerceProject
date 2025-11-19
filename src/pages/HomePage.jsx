@@ -1,11 +1,11 @@
-import ProductCard from "../components/ProductCard";
-import Slider from "../components/Slider";
-import EditorsPicks from "../components/EditorsPicks";
-import ProductsGrid from "../components/ProductsGrid";
-import FeaturedBlock from "../components/FeaturedBlock";
-import BlogList from "../components/BlogList";
+import ProductCard from "../components/Home/ProductCard";
+import Slider from "../components/Home/Slider";
+import EditorsPicks from "../components/Home/EditorsPicks";
+import ProductsGrid from "../components/Home/ProductsGrid";
+import FeaturedBlock from "../components/Home/FeaturedBlock";
+import BlogList from "../components/Home/BlogList";
 import { Link } from "react-router-dom";
-import FeaturedSlider from "../components/FeaturedSlider";
+import FeaturedSlider from "../components/Home/FeaturedSlider";
 
 /*
   Mobile-first Home Page layout matching the provided mobile Figma screenshot.
