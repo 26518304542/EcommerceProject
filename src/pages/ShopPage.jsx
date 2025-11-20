@@ -2,6 +2,8 @@ import React from "react";
 import ShopPageContainer from "../components/Shop/ShopPageContainer";
 import ShopCards from "../components/Shop/ShopCards";
 import FilterRow from "../components/Shop/FilterRow";
+import DesktopProductCards from "../components/Shop/DesktopProductCards";
+import DesktopClients from "../components/Clients/DesktopClients";
 
 export default function ShopPage() {
 
@@ -24,6 +26,10 @@ export default function ShopPage() {
         <ShopCards images={images}/>
 
         <FilterRow />
+
+        <DesktopProductCards />
+
+        <DesktopClients />
     </div>
   );
 }

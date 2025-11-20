@@ -2,23 +2,38 @@ import React from "react";
 
 export default function ShopCards({ images = [] }) {
   return (
-    <section className="w-full  mx-auto  bg-red-700">
-      {/* Outer container (1440 x 271) */}
-      <div className="w-full h-[271px] flex items-center justify-center bg-black">
-        {/* Inner container (1088 x 271) */}
-        <div className="w-[1088px] h-[271px] flex items-center bg-green-500">
-          {/* Image wrapper (1088 x 223) */}
-          <div className="w-[1088px] h-[223px] flex gap-4 items-center justify-between bg-blue-800">
-            {images.slice(0, 5).map((image, index) => (
-              <img
-                key={index}
-                src={image.image}
-                alt="Shop item"
-                className="w-[205px] h-[223px] object-cover rounded-none shadow-sm"
-              />
-            ))}
+    <section className="w-full bg-[#FAFAFA] py-6">
+      <div className="w-full mx-auto flex flex-col items-start gap-[18px] px-0 max-w-[333px] md:max-w-[1088px] md:flex-row md:flex-nowrap md:justify-center md:items-start md:gap-[15px]">
+        {images.slice(0, 5).map((item, index) => (
+          <div
+            key={index}
+            className="w-full max-w-[332px] h-[300px] bg-white relative overflow-hidden md:w-[205px] md:h-[223px]"
+          >
+            <img
+              src={item.image}
+              alt={item.title || "Shop item"}
+              className="w-full h-full object-cover"
+            />
+
+            {/* dark overlay */}
+            <div className="absolute inset-0 bg-black/25" />
+
+            {/* card content */}
+            <h3
+              className="absolute text-white font-bold text-[16px] leading-[24px] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-1/2"
+              style={{ bottom: '142px' }}
+            >
+              {item.title || 'CLOTHS'}
+            </h3>
+
+            <p
+              className="absolute text-white text-[14px] leading-[20px] left-1/2 -translate-x-1/2 md:translate-x-0 md:left-1/2"
+              style={{ bottom: '108px' }}
+            >
+              {item.count || '5 items'}
+            </p>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

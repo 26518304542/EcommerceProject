@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LayoutGrid, List, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function FilterRow({ resultsCount = 12 }) {
   const [view, setView] = useState("grid");
@@ -19,41 +19,70 @@ export default function FilterRow({ resultsCount = 12 }) {
         <div className="flex items-center gap-3">
           <span className="text-sm text-gray-600 font-semibold">Views:</span>
 
-          {/* GRID VIEW */}
+          {/* GRID VIEW BUTTON (Custom SVG) */}
           <button
             onClick={() => setView("grid")}
-            className={`w-9 h-9 border rounded flex items-center justify-center ${
-              view === "grid"
-                ? "border-gray-300 bg-gray-100"
-                : "border-gray-200 hover:bg-gray-100"
-            }`}
+            className={`w-[46px] h-[46px] border rounded flex items-center justify-center
+              ${
+                view === "grid"
+                  ? "border-gray-300 bg-gray-100"
+                  : "border-gray-200 hover:bg-gray-100"
+              }`}
           >
-            <LayoutGrid
-              size={18}
-              className={view === "grid" ? "text-[#252B42]" : "text-[#737373]"}
-            />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              className={`${
+                view === "grid" ? "fill-[#252B42]" : "fill-[#737373]"
+              }`}
+            >
+              <rect x="3" y="3" width="8" height="8" rx="2" />
+              <rect x="13" y="3" width="8" height="8" rx="2" />
+              <rect x="3" y="13" width="8" height="8" rx="2" />
+              <rect x="13" y="13" width="8" height="8" rx="2" />
+            </svg>
           </button>
 
-          {/* LIST VIEW */}
+          {/* LIST VIEW BUTTON (Custom SVG with Checkmarks) */}
           <button
             onClick={() => setView("list")}
-            className={`w-9 h-9 border rounded flex items-center justify-center ${
-              view === "list"
-                ? "border-gray-300 bg-gray-100"
-                : "border-gray-200 hover:bg-gray-100"
-            }`}
+            className={`w-[46px] h-[46px] border rounded flex items-center justify-center
+              ${
+                view === "list"
+                  ? "border-gray-300 bg-gray-100"
+                  : "border-gray-200 hover:bg-gray-100"
+              }`}
           >
-            <List
-              size={18}
-              className={view === "list" ? "text-[#252B42]" : "text-[#737373]"}
-            />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              className={`${
+                view === "list" ? "stroke-[#252B42]" : "stroke-[#737373]"
+              }`}
+              fill="none"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* Checkmarks */}
+              <path d="M4 6 L6 8 L10 4" />
+              <path d="M4 12 L6 14 L10 10" />
+              <path d="M4 18 L6 20 L10 16" />
+
+              {/* List lines */}
+              <line x1="12" y1="6" x2="20" y2="6" />
+              <line x1="12" y1="12" x2="20" y2="12" />
+              <line x1="12" y1="18" x2="20" y2="18" />
+            </svg>
           </button>
         </div>
 
         {/* RIGHT: Sort Dropdown + Filter Button */}
         <div className="flex items-center gap-3">
 
-          {/* POPULARITY DROPDOWN */}
+          {/* SORT DROPDOWN */}
           <div className="relative">
             <button
               onClick={() => setOpen(!open)}
@@ -87,7 +116,6 @@ export default function FilterRow({ resultsCount = 12 }) {
           <button className="px-5 py-2 h-[42px] rounded bg-[#23A6F0] text-white font-semibold text-sm hover:bg-[#1e96d6]">
             Filter
           </button>
-
         </div>
 
       </div>
