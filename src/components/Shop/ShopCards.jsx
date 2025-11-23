@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ShopCards({ images = [] }) {
   return (
-    <section className="w-full bg-[#FAFAFA] py-6">
+    <section className="w-full bg-[#FAFAFA] py-6 ">
       <div className="w-full mx-auto flex flex-col items-start gap-[18px] px-0 max-w-[333px] md:max-w-[1088px] md:flex-row md:flex-nowrap md:justify-center md:items-start md:gap-[15px]">
         {images.slice(0, 5).map((item, index) => (
           <div

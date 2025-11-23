@@ -11,6 +11,7 @@ import {
   Facebook,
   Instagram,
   Twitter,
+  Youtube,
   ChevronDown,
 } from "lucide-react";
 import Slider from "../components/Home/Slider";
@@ -60,7 +61,7 @@ export default function Header() {
 
       {/* ---------- TOP INFO BAR (Aynı) ---------- */}
       <div className={`${isShop ? 'bg-[#23856D]' : 'bg-[#0b3650]'} text-white text-sm ${mobileOpen ? 'hidden' : 'block'} md:block`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+        <div className="max-w-7xl mx-auto flex items-center justify-center px-44 py-2">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-white" />
@@ -80,12 +81,12 @@ export default function Header() {
             <div className="hidden sm:flex items-center gap-2">
               <Facebook className="w-4 h-4" />
               <Instagram className="w-4 h-4" />
+              <Youtube className="w-4 h-4" />
               <Twitter className="w-4 h-4" />
+
             </div>
 
-            <div className="hidden sm:flex items-center gap-2">
-              <Link to="/login" className="text-xs underline">Login / Register</Link>
-            </div>
+
           </div>
         </div>
       </div>
@@ -103,7 +104,7 @@ export default function Header() {
         </div>
 
         {/* DESKTOP HEADER - only visible on desktop */}
-        <div className="hidden md:flex max-w-7xl mx-auto items-center justify-between px-4 py-4 relative">
+        <div className="hidden md:flex max-w-7xl mx-auto items-center justify-between px-32 py-4 relative">
           <Link to="/" className="text-2xl font-bold text-[#252B42] flex-shrink-0">Bandage</Link>
           <nav className="flex items-center gap-6 relative">
             <Link to="/" className="text-[#737373] text-sm">Home</Link>
@@ -138,13 +139,16 @@ export default function Header() {
             <Link to="/contact" className="text-sm text-[#737373]">Contact</Link>
             <Link to="/pages" className="text-sm text-[#737373]">Pages</Link>
           </nav>
+
           <div className="hidden md:flex items-center gap-4 ml-6">
+            <div className="hidden sm:flex items-center gap-2">
+              <Link to="/login" className="text-xs underline">Login / Register</Link>
+            </div>
             <Search className="w-5 h-5 text-[#23A6F0]" />
             <Link to="/cart">
               <ShoppingCart className="w-6 h-6 text-[#23A6F0]" />
             </Link>
             <Like className="w-6 h-6 text-[#23A6F0]" />
-            <User className="w-6 h-6 text-[#23A6F0]" />
           </div>
         </div>
 
