@@ -74,10 +74,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Hero Slider */}
-      {<section className="w-full">
-        <Slider slides={heroSlides} />
-      </section>}
+
 
       {/* Editors Picks */}
       <EditorsPicks products={products.slice(0, 4)} />

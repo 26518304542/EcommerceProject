@@ -13,7 +13,7 @@ const clients = [
 export default function DesktopClients({ items = clients }) {
   return (
     <section className="w-full bg-[#FAFAFA]">
-      <div className="max-w-[1050px] mx-auto flex flex-row justify-center items-center py-[50px] gap-[30px]">
+      <div className="max-w-[1050px] flex-col sm:flex-wrap sm:w-full mx-auto flex md:flex-row justify-center items-center py-[50px] gap-[30px]">
         {items.map((c) => (
           <div key={c.id} className="flex flex-col items-center justify-center">
             <ClientSymbol src={c.src} alt={c.alt} className="" />
