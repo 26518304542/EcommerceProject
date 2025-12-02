@@ -8,7 +8,7 @@ export default function FilterRow({ resultsCount = 12 }) {
 
   return (
     <section className="flex w-full justify-center items-center h-[98px]">
-      <div className="flex flex-row w-3/4 md:w-[1050px] h-full justify-between items-center">
+      <div className="flex md:flex-row w-3/4 md:w-[1050px] h-full justify-between items-center flex-col flex-wrap">
 
         {/* LEFT: Results Count */}
         <div className="text-sm text-gray-600 font-semibold">
