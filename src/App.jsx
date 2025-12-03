@@ -6,6 +6,9 @@ import HomePage from "./pages/HomePage";
 import OverflowChecker from "./components/OverflowChecker";
 import ShopPage from "./pages/ShopPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import ContactPage from "./pages/ContactPage";
+import AboutUsPage from "./pages/AboutUsPage";
+
 /* App uses a single Header and single Footer for all pages (as requested) */
 export default function App() {
   return (
@@ -20,6 +23,8 @@ export default function App() {
               {/* add other routes as needed */}
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/productdetails" element={<ProductDetailPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutUsPage />} />
             </Routes>
           </div>
         </PageContent>
