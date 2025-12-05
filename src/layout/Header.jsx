@@ -23,6 +23,7 @@ export default function Header() {
   const isShop = location.pathname.startsWith('/shop');
   const isHome = location.pathname === '/';
   const isContact = location.pathname === '/contact';
+  const isTeam = location.pathname === '/team' || location.pathname === '/about/team';
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,7 +62,7 @@ export default function Header() {
 
 
       {/* ---------- TOP INFO BAR (Aynı) ---------- */}
-      <div className={`${isShop ? 'bg-[#23856D]' : 'bg-[#0b3650]'} text-white text-sm ${mobileOpen ? 'hidden' : 'block'} ${isContact ? 'hidden' : 'block'}`}>
+      <div className={`${isShop ? 'bg-[#23856D]' : 'bg-[#0b3650]'} text-white text-sm ${mobileOpen ? 'hidden' : 'block'} ${isContact ? 'hidden' : 'block'} ${isTeam ? 'hidden' : 'block'}`}>
         <div className="max-w-7xl mx-auto flex items-center justify-center px-44 py-2">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
@@ -93,7 +94,7 @@ export default function Header() {
       </div>
 
       {/* ---------- MAIN NAV ---------- */}
-      <div className="bg-white border-b">
+      <div className={`bg-white border-b ${isTeam ? 'md:hidden' : 'block'}`}>
         {/* MOBILE HEADER - only visible on mobile */}
         {isContact ? (
           <div className="md:hidden w-full relative bg-[#F7F7F7]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -137,6 +138,44 @@ export default function Header() {
 
                 <div className="mt-8">
                   <img src="/images/contact-hero.jpg" alt="contact" className="mx-auto w-[280px] object-cover rounded-full" />
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : isTeam ? (
+          /* Team page mobile inner header */
+          <div className="md:hidden w-full relative bg-white" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              <div className="absolute inset-0 bg-[#F7F7F7] h-[532px] -z-10" />
+              <div className="absolute inset-0 bg-white/15 -z-10" />
+
+            {/* top navbar area */}
+            <div className="relative h-[100px] flex items-center justify-center">
+              <Link to="/" className="absolute left-4 text-[24px] font-bold text-[#252B42]">Bandage</Link>
+
+              <div className="absolute right-4 top-3 flex items-center gap-3 text-[#737373]">
+                <Search className="w-6 h-6" />
+                <ShoppingCart className="w-6 h-6" />
+                <Menu className="w-6 h-6" />
+              </div>
+            </div>
+
+            {/* centered vertical nav (mobile menu style) */}
+            <nav className="flex flex-col items-center gap-6 pt-6 z-20 relative">
+              <Link to="/" className="text-[30px] leading-[45px] text-[#737373]">Home</Link>
+              <Link to="/product" className="text-[30px] leading-[45px] text-[#737373]">Product</Link>
+              <Link to="/pricing" className="text-[30px] leading-[45px] text-[#737373]">Pricing</Link>
+              <Link to="/contact" className="text-[30px] leading-[45px] text-[#252B42]">Contact</Link>
+            </nav>
+
+            {/* page content block */}
+            <div className="absolute left-0 right-0 top-[616px] px-6">
+              <div className="flex flex-col items-center gap-4 text-center">
+                <h5 className="text-[16px] font-bold text-[#737373]">WHAT WE DO</h5>
+                <h2 className="text-[28px] md:text-[40px] font-bold text-[#252B42] leading-[34px]">Innovation tailored for you</h2>
+                <div className="flex items-center gap-3 text-sm text-[#737373]">
+                  <Link to="/" className="font-bold text-[#252B42]">Home</Link>
+                  <span className="text-[#BDBDBD]">›</span>
+                  <span className="text-[#737373]">Team</span>
                 </div>
               </div>
             </div>
@@ -222,7 +261,7 @@ export default function Header() {
 
 
         {/* --------- MOBILE DROPDOWN MENU (YENİ) --------- */}
-        {mobileOpen && (
+        {mobileOpen && !isTeam && (
           <div className="md:hidden w-full bg-white border-b" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             {/* Top row */}
 
@@ -287,6 +326,51 @@ export default function Header() {
 
               <div className="w-1/2 flex justify-end">
                 <img src="/images/contact-hero.jpg" alt="contact" className="w-[571px] h-auto object-contain" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isTeam && (
+        <div className="hidden md:block relative w-full bg-white overflow-hidden" style={{ height: '384px' }}>
+          {/* background + filter */}
+          <div className="absolute left-0 right-0 top-0" style={{ height: '352px', background: '#FFFFFF' }} />
+          <div className="absolute left-0 right-0 top-0 bottom-0" style={{ background: 'rgba(255,255,255,0.5)' }} />
+
+          {/* navbar container (left/right 59px, height 91px) */}
+          <div className="absolute left-[59px] right-[59px] top-0" style={{ height: '91px' }}>
+            <div className="relative" style={{ width: '1322px', marginLeft: 'auto', marginRight: 'auto', height: '91px' }}>
+              {/* brand placed left according to spec */}
+              <Link to="/" className="absolute" style={{ left: 'calc(50% - 187px/2 - 431.5px)', top: '50%', transform: 'translateY(-50%)', fontSize: '24px', fontWeight: 700, color: '#252B42' }}>Bandage</Link>
+
+              {/* centered nav */}
+              <nav className="absolute" style={{ left: '50%', top: '50%', transform: 'translate(-50%, -50%)', display: 'flex', gap: '21px' }}>
+                <Link to="/" className="text-[#737373] font-bold text-sm">Home</Link>
+                <Link to="/product" className="text-[#737373] font-bold text-sm">Product</Link>
+                <Link to="/pricing" className="text-[#737373] font-bold text-sm">Pricing</Link>
+                <Link to="/contact" className="text-[#737373] font-bold text-sm">Contact</Link>
+              </nav>
+
+              {/* right side login / button */}
+              <div className="absolute" style={{ right: 0, top: '50%', transform: 'translateY(-50%)', display: 'flex', gap: '16px', alignItems: 'center' }}>
+                <Link to="/login" className="text-sm text-[#23A6F0]">Login</Link>
+                <button className="bg-[#23A6F0] text-white px-5 py-3 rounded">Become a member</button>
+              </div>
+            </div>
+          </div>
+
+          {/* page title area */}
+          <div className="absolute left-1/2" style={{ width: '870px', height: '280px', top: '104px', transform: 'translateX(-50%)' }}>
+            <div className="flex flex-col items-center py-12">
+              <div className="flex flex-col items-center gap-4 text-center">
+                <h5 className="text-[16px] font-bold text-[#737373]">WHAT WE DO</h5>
+                <h1 className="text-[58px] leading-[80px] font-bold text-[#252B42]">Innovation tailored for you</h1>
+                <div className="flex items-center gap-3 text-sm text-[#737373] mt-4">
+                  <Link to="/" className="font-bold text-[#252B42]">Home</Link>
+                  <span className="text-[#BDBDBD]">›</span>
+                  <span className="text-[#737373]">Team</span>
+                </div>
               </div>
             </div>
           </div>

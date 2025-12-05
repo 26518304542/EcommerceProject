@@ -8,6 +8,7 @@ import ShopPage from "./pages/ShopPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ContactPage from "./pages/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import TeamPage from "./pages/TeamPage";
 
 /* App uses a single Header and single Footer for all pages (as requested) */
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/productdetails" element={<ProductDetailPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/team" element={<TeamPage />} />
             </Routes>
           </div>
         </PageContent>

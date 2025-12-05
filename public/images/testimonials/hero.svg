@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#e6eef9"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <rect x="0" y="0" width="100%" height="100%" fill="#f3f7fb"/>
+  <g transform="translate(0,0)">
+    <!-- simple person silhouette placeholder -->
+    <rect x="600" y="0" width="600" height="800" fill="#ffffff"/>
+    <rect x="600" y="0" width="600" height="800" fill="#f0f4fb"/>
+    <g transform="translate(780,120)">
+      <circle cx="120" cy="120" r="80" fill="#d9e7f8" />
+      <rect x="40" y="230" width="160" height="350" rx="12" fill="#eaf2fb" />
+    </g>
+  </g>
+</svg>
