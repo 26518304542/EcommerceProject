@@ -9,6 +9,7 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import ContactPage from "./pages/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import TeamPage from "./pages/TeamPage";
+import PricingPage from "./pages/PricingPage";
 
 /* App uses a single Header and single Footer for all pages (as requested) */
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutUsPage />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
             </Routes>
           </div>
         </PageContent>
