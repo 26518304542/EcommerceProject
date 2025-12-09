@@ -2,7 +2,7 @@ import Pricing from "../components/Price/Pricing";
 import SwitchRow from "../components/Price/SwitchRow";
 import Row from "../components/Price/Row";
 import Clients from "../components/Price/Clients";
-
+import Faq from "../components/Price/Faq";
 
 export default function PricingPage(){
     return(
@@ -12,6 +12,7 @@ export default function PricingPage(){
                 <SwitchRow />
                 <Row />
                 <Clients />
+                <Faq />
             </div>
         </div>
 
