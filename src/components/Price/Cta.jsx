@@ -12,9 +12,9 @@ export default function Cta({ data }) {
         buttonText: 'Try it free now',
         Logos: [
             { logo: 'FaTwitter' , textLogo: 'text-[#55ACEE] fg-[#55ACEE]'},
-            { logo: 'Facebook' , textLogo: 'text-[#3b5998] fg-[#3b5998]' },
-            { logo: 'Instagram' },
-            { logo: 'Linkedin' }
+            { logo: 'Facebook' , textLogo: 'text-white text-bg-white fg-[#3b5998] bg-[#395185]' },
+            { logo: 'FaInstagram' },
+            { logo: 'FaLinkedin' }
         ]
     }
 
@@ -28,10 +28,10 @@ export default function Cta({ data }) {
         <section className='flex flex-row justify-center items-center h-[586px] w-[414px] ' >
             <div className='flex flex-col justify-center items-center py-[112px] gap-[96px] h-[576px] w-[332px]'>
                 <div className='flex flex-col items-center justify-center gap-[36px] w-[332px] h-[100px]'>
-                    <h2 className='text-[40px] items-center justify-center text-center font-montserrad font-bold text-[#252B42]'>{content.title2}</h2>
-                    <h6>{content.title6}</h6>
+                    <h2 className='text-[40px] md:w-[547px] md:h-[50px] items-center justify-center text-center font-montserrad font-bold text-[#252B42]'>{content.title2}</h2>
+                    <h6 className='text-[14px] font-[400] w-[321px] h-[60px] font-montserrat space-[0.2px] text-center md:w-[411px] md:h-[40px] '>{content.title6.slice(0,41)} <br/> {content.title6.slice(41)} </h6>
                     <div>
-                        <button className='bg-[#23A6F0] rounded-[5px] gap-[10px] px-[40px] py-[15px] text-[#FFFFFF] font-montserrat'>
+                        <button className='bg-[#23A6F0] rounded-[5px] gap-[10px] px-[40px] py-[15px] text-[#FFFFFF] font-montserrat font-[700]'>
                             {content.buttonText}
                         </button>
                     </div>
@@ -48,7 +48,7 @@ export default function Cta({ data }) {
                         )) : (
                             content.Logos.map((item, index) => {
                                 let IconComponent;
-                                if (item.logo==='FaTwitter') {
+                                if (item.logo==='FaTwitter' || item.logo==='FaFacebook' || item.logo==='FaInstagram' || item.logo==='FaLinkedin'){
                                     IconComponent = FaIcons[item.logo];
                                 }else{
                                     IconComponent = Icons[item.logo];
